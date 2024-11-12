@@ -1,0 +1,124 @@
+@import "../mixins.scss";
+
+.joinUs {
+  height: 100vh;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.6s;
+  @include flex($fDirection: column);
+  @media screen and (max-width: 1430px) {
+    opacity: 1;
+    visibility: visible;
+  }
+  &__content {
+    position: relative;
+    flex: 100%;
+    @include flex($fDirection: column, $gap: 104px, $jContent: center);
+    & > h2 {
+      color: #222;
+      text-align: center;
+      font-family: Rubik;
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 120%;
+      padding: 0 451px;
+    }
+  }
+  &__absItem {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    background: linear-gradient(207deg, #fbfbfb 2.8%, #fff 89.69%);
+    @include flex($aItems: center, $jContent: center);
+
+    &__star {
+      left: 250px;
+      top: 180px;
+    }
+    &__arrow {
+      top: 250px;
+      right: 270px;
+    }
+  }
+  &__hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  &__btnsContainer {
+    padding: 0 248px;
+    @include flex($aItems: center, $gap: 12px, $jContent: center);
+  }
+  &__btn {
+    width: 100%;
+    border-radius: 40px;
+    height: 56px;
+    @include flex($aItems: center, $jContent: center, $gap: 6px);
+    &__black {
+      color: #fff;
+
+      font-family: Karla;
+      background: #222;
+      color: #fff;
+
+      font-size: 20px;
+
+      font-weight: 400;
+    }
+    &__socials {
+      border: 0.5px #222 solid;
+    }
+  }
+}
+@media screen and (max-width: 1430px) {
+  .joinUs {
+    gap: 0;
+    &__content {
+      gap: 80px;
+      & > h2 {
+        padding: 0 130px;
+      }
+    }
+    &__btnsContainer {
+      padding: 0 224px;
+      flex-direction: column;
+    }
+    &__absItem {
+      width: 72px;
+      height: 72px;
+      &__star {
+        left: 30px;
+        top: 100px;
+      }
+      &__arrow {
+        right: 40px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .joinUs {
+    &__content {
+      gap: 40px;
+      & > h2 {
+        font-size: 24px;
+        padding: 0 20px;
+      }
+    }
+    &__btnsContainer {
+      padding: 0 37px;
+    }
+    &__absItem {
+      width: 64px;
+      height: 64px;
+      &__star {
+        left: 30px;
+        top: 10px;
+      }
+      &__arrow {
+        right: 20px;
+        top: 40px;
+      }
+    }
+  }
+}

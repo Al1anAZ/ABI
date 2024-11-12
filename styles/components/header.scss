@@ -1,0 +1,145 @@
+@import "../mixins.scss";
+
+.header {
+  z-index: 10;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: fixed;
+  width: calc(100% - 381px * 2);
+  margin: 0 auto;
+  padding: 8px 8px 8px 24px;
+
+  border-radius: 40px;
+  border: 1px #f1f1f1;
+
+  background: #fff;
+
+  opacity: 0;
+  visibility: hidden;
+  top: -50px;
+
+  transition: all 0.8s;
+  @include boxShadow(0px 0px 20px 0px rgba(113, 113, 113, 0.1));
+
+  @include flex($aItems: center, $jContent: space-between);
+  @media screen and (max-width: 1430px) {
+    top: 20px;
+    opacity: 1;
+    visibility: visible;
+    width: calc(100% - 66px * 2);
+  }
+
+  &__active {
+    top: 20px;
+    opacity: 1;
+    visibility: visible;
+  }
+  &__nav {
+    @include flex($aItems: center, $jContent: space-between);
+  }
+
+  &__navItem {
+    height: 48px;
+    cursor: pointer;
+    color: #222;
+    font-family: Karla;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px 24px;
+    border-radius: 40px;
+    transition: all 0.2s;
+    @include flex($aItems: center, $jContent: center);
+    &:hover {
+      background: #f1f1f1;
+    }
+  }
+  &__singBtn {
+    border-radius: 40px;
+    background: #222;
+    color: #fff;
+    font-family: Karla;
+    font-size: 14px;
+    height: 48px;
+    width: 104px;
+    transition: all 0.2s;
+    &:active {
+      @include boxShadow(0px 0px 20px 0px #c1c1c1);
+    }
+  }
+  &__menu__btn {
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1;
+    border: 0.5px #222 solid;
+
+    background: rgba(241, 241, 241, 0);
+    border-radius: 50%;
+    @include flex($aItems: center, $jContent: center);
+    & {
+      display: none;
+    }
+    & .svg-icon-two {
+      display: none;
+    }
+  }
+  &__btnContainer {
+    @include flex($aItems: center, $gap: 50px);
+  }
+  &__menu__burger {
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: all 0.6s;
+    bottom: 324px;
+    padding: {
+      top: 56px;
+      bottom: 20px;
+      right: 20px;
+      left: 20px;
+    }
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    @include flex($fDirection: column, $gap: 56px);
+  }
+  &__socialsBtnsBurgerContainer {
+    @include flex($aItems: center, $gap: 24px, $jContent: center);
+  }
+  &__socialsBtns {
+    height: 22px;
+  }
+}
+#header__menu__toggle {
+  display: none;
+  opacity: 0;
+}
+#header__menu__toggle:checked ~ .header__menu__burger {
+  bottom: -324px;
+}
+@media screen and (max-width: 767px) {
+  .header {
+    background-color: white;
+    width: 100%;
+    top: 0;
+    border-radius: 0;
+    gap: 0;
+    &__nav {
+      display: none;
+    }
+    &__singBtn {
+      height: 40px;
+    }
+    &__menu__btn {
+      display: flex;
+    }
+  }
+  #header__menu__toggle {
+    display: unset;
+  }
+}

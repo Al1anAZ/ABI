@@ -1,0 +1,409 @@
+@import "../mixins.scss";
+.main {
+  margin: 0 auto;
+  padding-top: 181px;
+  height: 100vh;
+  width: 1028px;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.6s;
+  @include flex($fDirection: column, $gap: 97px);
+
+  &__hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  &__titleContainer {
+    position: relative;
+    & h1 {
+      color: #222;
+      font-family: Rubik;
+      font-size: 136px;
+
+      font-weight: 500;
+      line-height: 120%;
+    }
+    animation: titleAnimation 2s;
+  }
+  &__moveBlock {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(207deg, #fbfbfb 2.8%, #fff 89.69%);
+    @include flex($aItems: center, $jContent: center);
+    &__blured {
+      background: linear-gradient(207deg, #fbfbfb 2.8%, #fff 89.69%);
+      opacity: 0.7;
+      &__bottom {
+        animation: bluredBottomBlock 2s;
+        right: -5px;
+        top: -40px;
+      }
+      &__top {
+        animation: bluredTopBlock 2s;
+        left: -20px;
+        bottom: -40px;
+      }
+    }
+    &__diagram {
+      animation: diagramMoveBlock 2s;
+      left: -10px;
+      bottom: -40px;
+    }
+    &__twoFiles {
+      animation: twoFilesMoveBlock 2s;
+      left: 140px;
+      bottom: -20px;
+    }
+    &__notes {
+      animation: notesBlock 2s;
+      left: -30px;
+      top: 5px;
+    }
+    &__dollar {
+      animation: dollarBlock 2s;
+      right: 80px;
+      bottom: 5px;
+    }
+    &__house {
+      animation: houseBlock 2s;
+      right: 160px;
+      top: -10px;
+    }
+    &__telegram {
+      animation: telegramBlock 2s;
+      right: 90px;
+      top: -80px;
+    }
+  }
+  &__gradientBlock {
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    height: 80px;
+    border-radius: 40px;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(34, 34, 34, 0.2) 100%
+      ),
+      #222;
+  }
+  &__empoverH1Container,
+  &__jorneyH1Container {
+    height: 95px;
+    @include flex($gap: 40px, $aItems: center);
+    & > div {
+      margin-top: 12px;
+    }
+  }
+  &__jorneyH1Container {
+    justify-content: end;
+    padding-right: 173px;
+  }
+  &__empoverH1 {
+    padding-left: 86px;
+  }
+  &__textAndBtnsContainer {
+    position: relative;
+    transition: all 0.8s;
+    opacity: 0;
+    visibility: hidden;
+    bottom: -20%;
+    @include flex($fDirection: column, $gap: 24px, $aItems: center);
+    & > p {
+      color: #717171;
+      text-align: center;
+
+      font-family: Karla;
+      font-size: 20px;
+
+      line-height: 24px;
+    }
+    &__active {
+      bottom: 0;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &__btnsContainer {
+    @include flex($aItems: center, $gap: 8px);
+  }
+  &__btns {
+    width: 166px;
+    height: 56px;
+    border-radius: 40px;
+    transition: all 0.2s;
+    font-family: Karla;
+    font-size: 20px;
+    &__black {
+      background-color: rgba(34, 34, 34, 1);
+      color: #fff;
+
+      &:active {
+        @include boxShadow(0px 0px 20px 0px #c1c1c1);
+      }
+    }
+    &__white {
+      border: 1px solid #222;
+      color: #222;
+
+      &:active {
+        border-color: white;
+        background: #f1f1f1;
+      }
+    }
+  }
+}
+@keyframes titleAnimation {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: unset;
+    top: 0;
+  }
+  60% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%);
+    top: 35%;
+  }
+  100% {
+    transform: unset;
+    top: 0;
+  }
+}
+@keyframes diagramMoveBlock {
+  0% {
+    left: -10px;
+    bottom: -40px;
+  }
+  60% {
+    left: -30px;
+    bottom: -60px;
+  }
+  100% {
+    left: -10px;
+    bottom: -40px;
+  }
+}
+@keyframes twoFilesMoveBlock {
+  0% {
+    left: 140px;
+    bottom: -20px;
+  }
+  60% {
+    left: 130px;
+    bottom: -30px;
+  }
+  100% {
+    left: 140px;
+    bottom: -20px;
+  }
+}
+@keyframes notesBlock {
+  0% {
+    left: -30px;
+    top: 5px;
+  }
+  60% {
+    left: -40px;
+    top: -20px;
+  }
+  100% {
+    left: -30px;
+    top: 5px;
+  }
+}
+@keyframes dollarBlock {
+  0% {
+    right: 80px;
+    bottom: 5px;
+  }
+  60% {
+    right: 65px;
+    bottom: -5px;
+  }
+  100% {
+    right: 80px;
+    bottom: 5px;
+  }
+}
+@keyframes houseBlock {
+  0% {
+    right: 160px;
+    top: -10px;
+  }
+  60% {
+    right: 150px;
+    top: -20px;
+  }
+  100% {
+    right: 160px;
+    top: -10px;
+  }
+}
+@keyframes telegramBlock {
+  0% {
+    right: 90px;
+    top: -80px;
+  }
+  60% {
+    right: 70px;
+    top: -90px;
+  }
+  100% {
+    right: 90px;
+    top: -80px;
+  }
+}
+
+@keyframes bluredBottomBlock {
+  0% {
+    right: -5px;
+    top: -40px;
+  }
+  60% {
+    right: -10px;
+    top: -50px;
+  }
+  100% {
+    right: -5px;
+    top: -40px;
+  }
+}
+@keyframes bluredTopBlock {
+  0% {
+    left: -20px;
+    bottom: -40px;
+  }
+  60% {
+    left: -25px;
+    bottom: -50px;
+  }
+  100% {
+    left: -20px;
+    bottom: -40px;
+  }
+}
+@media screen and (max-width: 1430px) {
+  .main {
+    gap: 0;
+    width: 665px;
+    & h1 {
+      font-size: 88px;
+    }
+    &__titleContainer {
+      animation: none;
+    }
+    &__empoverH1 {
+      padding-left: 53px;
+    }
+    &__jorneyH1Container {
+      padding-right: 82px;
+    }
+    &__gradientBlock {
+      width: 137px;
+      height: 50px;
+    }
+    &__textAndBtnsContainer {
+      opacity: 1;
+      visibility: visible;
+      & > p {
+        font-size: 16px;
+      }
+    }
+    &__moveBlock {
+      animation: none;
+      width: 56px;
+      height: 56px;
+    }
+    &__moveBlock__notes {
+      top: -60px;
+      left: 15px;
+    }
+    &__moveBlock__telegram {
+      right: -10px;
+      top: -60px;
+    }
+    &__moveBlock__diagram {
+      left: -20px;
+      bottom: -60px;
+    }
+    &__moveBlock__twoFiles {
+      left: 100px;
+    }
+    &__moveBlock__dollar {
+      right: -10px;
+      bottom: -60px;
+    }
+    &__moveBlock__house {
+      right: 80px;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .main {
+    padding-top: 0;
+    width: 363px;
+    @include flex($aItems: center, $fDirection: column, $jContent: center);
+    & h1 {
+      font-size: 48px;
+    }
+    &__empoverH1Container,
+    &__jorneyH1Container {
+      height: 50px;
+    }
+    &__empoverH1 {
+      padding-left: 31px;
+    }
+    &__jorneyH1Container {
+      padding-right: 40px;
+    }
+    &__gradientBlock {
+      width: 81px;
+      height: 30px;
+    }
+    &__moveBlock {
+      width: 50px;
+      height: 50px;
+    }
+    &__moveBlock__notes {
+      top: -60px;
+      left: 5px;
+    }
+    &__moveBlock__telegram {
+      right: -5px;
+      top: -86px;
+    }
+    &__moveBlock__diagram {
+      left: -5px;
+      bottom: -100px;
+    }
+    &__moveBlock__twoFiles {
+      left: 30px;
+      bottom: -40px;
+    }
+    &__moveBlock__dollar {
+      right: -5px;
+      bottom: -60px;
+    }
+    &__moveBlock__house {
+      right: 20px;
+      top: -25px;
+    }
+    &__textAndBtnsContainer {
+      & > p {
+        font-size: 14px;
+        & > br {
+          display: none;
+        }
+      }
+    }
+    &__btns {
+      font-size: 16px;
+      height: 48px;
+    }
+  }
+}

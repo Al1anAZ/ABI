@@ -1,0 +1,134 @@
+@import "../mixins.scss";
+
+.feedBack {
+  position: relative;
+  height: 100vh;
+  transition: all 0.6s;
+  opacity: 1;
+  visibility: visible;
+  @include flex($aItems: center, $jContent: center);
+  @media screen and (max-width: 1430px) {
+    display: none;
+  }
+  &__hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  &__title {
+    color: rgba(34, 34, 34, 0.1);
+    text-align: center;
+    font-family: Rubik;
+    font-size: 100px;
+    font-weight: 500;
+    line-height: normal;
+
+    transition: all 0.5s;
+
+    &__first {
+      color: rgba(34, 34, 34, 0.3);
+      font-size: 104px;
+    }
+    &__second {
+      color: rgba(34, 34, 34, 0.6);
+      font-size: 108px;
+    }
+    &__third {
+      color: #222;
+      font-size: 112px;
+    }
+  }
+  &__item {
+    position: absolute;
+    display: flex;
+    width: 440px;
+    padding: 24px 32px;
+    border-radius: 24px;
+    border: 0.5px #f1f1f1 solid;
+    top: 50%;
+    left: 50%;
+    background: white;
+    transform-origin: center;
+    transition: all 0.5s;
+    opacity: 1;
+    visibility: visible;
+    @include boxShadow(0px 2px 15px 0px rgba(34, 34, 34, 0.05));
+    @include flex($fDirection: column, $gap: 24px);
+    &__first {
+      z-index: 3;
+      transform: translate(-50%, -50%) rotate(-3.042deg);
+
+      &__top {
+        transform: translate(-50%, -170%) rotate(4.031deg);
+        opacity: 0.5;
+      }
+      &__hide {
+        transform: translate(-50%, -200%) rotate(4.031deg);
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+    &__second {
+      z-index: 2;
+      transform: translate(-50%, -50%) rotate(3.886deg);
+      &__top {
+        transform: translate(-50%, -170%) rotate(-2.82deg);
+        opacity: 0.5;
+      }
+      &__hide {
+        transform: translate(-50%, -200%) rotate(-2.82deg);
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+    &__third {
+      z-index: 1;
+      transform: translate(-50%, -50%) rotate(-8deg);
+      &__top {
+        transform: translate(-50%, -170%) rotate(6.331deg);
+        opacity: 0.5;
+      }
+    }
+    &__topContainer {
+      @include flex($aItems: center, $jContent: space-between);
+    }
+    &__userInfoContainer {
+      @include flex($aItems: center, $gap: 16px);
+    }
+    &__userImg {
+      border-radius: 50%;
+    }
+    &__userTextInfoContainer {
+      @include flex($fDirection: column, $gap: 2px);
+      & > h3 {
+        color: #222;
+
+        font-family: Karla;
+        font-size: 16px;
+
+        font-weight: 400;
+        line-height: 22px;
+      }
+      & > p {
+        color: #717171;
+        font-family: Karla;
+        font-size: 14px;
+      }
+    }
+    &__text {
+      color: #222;
+
+      font-family: Karla;
+      font-size: 16px;
+
+      line-height: 22px;
+    }
+    &__date {
+      color: #717171;
+
+      font-family: Karla;
+      font-size: 16px;
+
+      line-height: 22px;
+    }
+  }
+}
